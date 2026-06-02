@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3015",
+    "dev:pursuit": "next dev -p 3015",
     "build": "next build",
+    "build:pursuit": "next build",
     "start": "next start -p 3015",
-    "typecheck": "tsc --noEmit"
+    "start:pursuit": "next start -p 3015",
+    "typecheck": "tsc --noEmit",
+    "typecheck:pursuit": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
