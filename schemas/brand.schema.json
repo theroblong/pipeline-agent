@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/brand.schema.json",
+  "title": "Pruvida Brand",
+  "type": "object",
+  "required": ["record_type", "brand_id", "brand_name", "status"],
+  "properties": {
+    "record_type": { "const": "brand" },
+    "version": { "type": "string" },
+    "brand_id": { "type": "string" },
+    "brand_name": { "type": "string" },
+    "relationship_to_pruvida": { "type": "string" },
+    "status": { "type": "string" },
+    "source_note": { "type": "string" },
+    "created_date": { "type": "string" },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

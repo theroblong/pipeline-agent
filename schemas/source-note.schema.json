@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/source-note.schema.json",
+  "title": "Pruvida Source Note",
+  "type": "object",
+  "required": ["record_type", "source_id", "source_type", "source_path", "status"],
+  "properties": {
+    "record_type": { "const": "source-note" },
+    "version": { "type": "string" },
+    "source_id": { "type": "string" },
+    "source_type": { "type": "string" },
+    "source_path": { "type": "string" },
+    "status": { "type": "string", "enum": ["raw", "reviewed", "distilled", "archived"] },
+    "created_date": { "type": "string" },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

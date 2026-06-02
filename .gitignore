@@ -1,0 +1,15 @@
+node_modules
+.DS_Store
+
+# Next.js / Vercel
+.next/
+apps/**/.next/
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+
+# Local env
+.env
+.env.*
+!.env.example

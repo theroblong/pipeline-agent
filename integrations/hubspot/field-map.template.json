@@ -1,0 +1,59 @@
+{
+  "version": "0.1.0",
+  "notes": "Template mapping only. Verify HubSpot portal property names before implementation.",
+  "objects": {
+    "company": {
+      "source": "knowledge/accounts",
+      "id_field": "hubspot_company_id",
+      "properties": {
+        "company_name": "name",
+        "industry": "industry",
+        "website": "website",
+        "owner": "hubspot_owner_id"
+      }
+    },
+    "contact": {
+      "source": "knowledge/contacts",
+      "id_field": "hubspot_contact_id",
+      "properties": {
+        "first_name": "firstname",
+        "last_name": "lastname",
+        "email": "email",
+        "phone": "phone",
+        "title": "jobtitle",
+        "company_name": "associatedcompanyid"
+      }
+    },
+    "deal": {
+      "source": "knowledge/opportunities",
+      "id_field": "hubspot_deal_id",
+      "properties": {
+        "opportunity_name": "dealname",
+        "pipeline_stage": "dealstage",
+        "primary_offer": "primary_offer",
+        "secondary_offers": "secondary_offers",
+        "estimated_value": "amount",
+        "target_close_date": "closedate",
+        "owner": "hubspot_owner_id"
+      }
+    },
+    "product": {
+      "source": "knowledge/products",
+      "id_field": "hubspot_product_id",
+      "properties": {
+        "product_name": "name",
+        "product_type": "product_type",
+        "crm_product_code": "hs_sku",
+        "primary_positioning": "description"
+      }
+    },
+    "engagement": {
+      "source": "knowledge/conversations",
+      "id_field": "hubspot_engagement_id",
+      "properties": {
+        "conversation_date": "activity_date",
+        "conversation_type": "activity_type"
+      }
+    }
+  }
+}

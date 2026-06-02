@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/contact.schema.json",
+  "title": "Pruvida Contact",
+  "type": "object",
+  "required": ["record_type", "contact_id", "full_name", "company_name"],
+  "properties": {
+    "record_type": { "const": "contact" },
+    "version": { "type": "string" },
+    "contact_id": { "type": "string" },
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "full_name": { "type": "string" },
+    "company_name": { "type": "string" },
+    "account_id": { "type": "string" },
+    "email": { "type": "string" },
+    "phone": { "type": "string" },
+    "title": { "type": "string" },
+    "department": { "type": "string" },
+    "role_in_opportunity": {
+      "type": "string",
+      "enum": [
+        "economic-buyer",
+        "technical-buyer",
+        "champion",
+        "evaluator",
+        "influencer",
+        "procurement",
+        "legal",
+        "security",
+        "user",
+        "unknown"
+      ]
+    },
+    "influence_level": { "type": "string", "enum": ["high", "medium", "low", "unknown"] },
+    "relationship_status": { "type": "string" },
+    "owner": { "type": "string" },
+    "hubspot_contact_id": { "type": "string" },
+    "external_crm_ids": { "type": "object", "additionalProperties": { "type": "string" } },
+    "created_date": { "type": "string" },
+    "last_interaction_date": { "type": "string" },
+    "crm_sync_status": {
+      "type": "string",
+      "enum": ["not-synced", "ready", "synced", "error", "do-not-sync"]
+    },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

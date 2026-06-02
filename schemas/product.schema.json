@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/product.schema.json",
+  "title": "Pruvida Product Or Service",
+  "type": "object",
+  "required": ["record_type", "product_id", "product_name", "product_type", "status"],
+  "properties": {
+    "record_type": { "const": "product" },
+    "version": { "type": "string" },
+    "product_id": { "type": "string" },
+    "product_name": { "type": "string" },
+    "product_type": { "type": "string", "enum": ["product", "service", "bundle", "unknown"] },
+    "status": { "type": "string", "enum": ["active", "draft", "retired", "unknown"] },
+    "owner": { "type": "string" },
+    "primary_positioning": { "type": "string" },
+    "target_buyers": { "type": "array", "items": { "type": "string" } },
+    "best_fit_stages": { "type": "array", "items": { "type": "string" } },
+    "common_pain_signals": { "type": "array", "items": { "type": "string" } },
+    "marketing_source_refs": { "type": "array", "items": { "type": "string" } },
+    "messaging_pillars": { "type": "array", "items": { "type": "string" } },
+    "use_cases": { "type": "array", "items": { "type": "string" } },
+    "packaging_ideas": { "type": "array", "items": { "type": "string" } },
+    "recommended_metrics": { "type": "array", "items": { "type": "string" } },
+    "crm_product_code": { "type": "string" },
+    "hubspot_product_id": { "type": "string" },
+    "external_crm_ids": { "type": "object", "additionalProperties": { "type": "string" } },
+    "created_date": { "type": "string" },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

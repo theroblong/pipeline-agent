@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/campaign.schema.json",
+  "title": "Pruvida Campaign",
+  "type": "object",
+  "required": ["record_type", "campaign_id", "campaign_name", "status"],
+  "properties": {
+    "record_type": { "const": "campaign" },
+    "version": { "type": "string" },
+    "campaign_id": { "type": "string" },
+    "campaign_name": { "type": "string" },
+    "status": { "type": "string" },
+    "source_note": { "type": "string" },
+    "brand_id": { "type": "string" },
+    "created_date": { "type": "string" },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

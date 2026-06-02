@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/account.schema.json",
+  "title": "Pruvida Account",
+  "type": "object",
+  "required": ["record_type", "account_id", "company_name", "status", "owner"],
+  "properties": {
+    "record_type": { "const": "account" },
+    "version": { "type": "string" },
+    "account_id": { "type": "string" },
+    "company_name": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["prospect", "active-opportunity", "customer", "partner", "dormant", "no-fit"]
+    },
+    "industry": { "type": "string" },
+    "owner": { "type": "string" },
+    "website": { "type": "string" },
+    "linkedin": { "type": "string" },
+    "hubspot_company_id": { "type": "string" },
+    "external_crm_ids": { "type": "object", "additionalProperties": { "type": "string" } },
+    "created_date": { "type": "string" },
+    "last_interaction_date": { "type": "string" },
+    "next_action": { "type": "string" },
+    "next_action_due": { "type": "string" },
+    "crm_sync_status": {
+      "type": "string",
+      "enum": ["not-synced", "ready", "synced", "error", "do-not-sync"]
+    },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/conversation.schema.json",
+  "title": "Pruvida Conversation",
+  "type": "object",
+  "required": ["record_type", "conversation_id", "conversation_date", "company_name"],
+  "properties": {
+    "record_type": { "const": "conversation" },
+    "version": { "type": "string" },
+    "conversation_id": { "type": "string" },
+    "conversation_date": { "type": "string" },
+    "conversation_time": { "type": "string" },
+    "timezone": { "type": "string" },
+    "conversation_type": {
+      "type": "string",
+      "enum": [
+        "intro-call",
+        "discovery-call",
+        "demo",
+        "workshop",
+        "proposal-review",
+        "negotiation",
+        "onboarding",
+        "business-review",
+        "support",
+        "internal",
+        "email",
+        "note",
+        "other"
+      ]
+    },
+    "source": { "type": "string" },
+    "source_transcript": { "type": "string" },
+    "account_id": { "type": "string" },
+    "company_name": { "type": "string" },
+    "opportunity_ids": { "type": "array", "items": { "type": "string" } },
+    "contact_ids": { "type": "array", "items": { "type": "string" } },
+    "owner": { "type": "string" },
+    "pipeline_stage_before": { "type": "string" },
+    "pipeline_stage_after": { "type": "string" },
+    "buying_cycle_stage_before": { "type": "string" },
+    "buying_cycle_stage_after": { "type": "string" },
+    "hubspot_engagement_id": { "type": "string" },
+    "external_crm_ids": { "type": "object", "additionalProperties": { "type": "string" } },
+    "crm_sync_status": {
+      "type": "string",
+      "enum": ["not-synced", "ready", "synced", "error", "do-not-sync"]
+    },
+    "created_date": { "type": "string" },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

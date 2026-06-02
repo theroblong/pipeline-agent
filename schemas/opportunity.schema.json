@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pruvida.local/schemas/opportunity.schema.json",
+  "title": "Pruvida Opportunity",
+  "type": "object",
+  "required": ["record_type", "opportunity_id", "account_id", "company_name", "opportunity_name"],
+  "properties": {
+    "record_type": { "const": "opportunity" },
+    "version": { "type": "string" },
+    "opportunity_id": { "type": "string" },
+    "account_id": { "type": "string" },
+    "company_name": { "type": "string" },
+    "opportunity_name": { "type": "string" },
+    "pipeline_stage": {
+      "type": "string",
+      "enum": [
+        "lead-capture",
+        "discovery",
+        "solution-fit",
+        "proposal",
+        "negotiation-close",
+        "onboarding",
+        "recurring-success",
+        "nurture",
+        "closed-won",
+        "closed-lost",
+        "no-fit"
+      ]
+    },
+    "buying_cycle_stage": {
+      "type": "string",
+      "enum": [
+        "signal",
+        "problem-exploration",
+        "active-evaluation",
+        "solution-shaping",
+        "proposal-procurement",
+        "post-sale-expansion",
+        "nurture",
+        "no-fit"
+      ]
+    },
+    "primary_offer": { "type": "string" },
+    "secondary_offers": { "type": "array", "items": { "type": "string" } },
+    "product_page_refs": { "type": "array", "items": { "type": "string" } },
+    "position": {
+      "type": "string",
+      "enum": ["strong", "developing", "neutral", "weak", "blocked", "unknown"]
+    },
+    "owner": { "type": "string" },
+    "status": { "type": "string", "enum": ["open", "won", "lost", "nurture", "no-fit"] },
+    "estimated_value": { "type": "string" },
+    "target_close_date": { "type": "string" },
+    "probability": { "type": "string" },
+    "next_action": { "type": "string" },
+    "next_action_due": { "type": "string" },
+    "last_conversation_date": { "type": "string" },
+    "hubspot_deal_id": { "type": "string" },
+    "external_crm_ids": { "type": "object", "additionalProperties": { "type": "string" } },
+    "crm_sync_status": {
+      "type": "string",
+      "enum": ["not-synced", "ready", "synced", "error", "do-not-sync"]
+    },
+    "created_date": { "type": "string" },
+    "last_updated": { "type": "string" }
+  },
+  "additionalProperties": true
+}

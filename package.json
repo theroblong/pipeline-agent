@@ -1,0 +1,14 @@
+{
+  "name": "pruvida-pipeline-agent",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:pursuit": "npm --workspace @pruvida/pursuit-portal run dev",
+    "build:pursuit": "npm --workspace @pruvida/pursuit-portal run build",
+    "start:pursuit": "npm --workspace @pruvida/pursuit-portal run start",
+    "typecheck:pursuit": "npm --workspace @pruvida/pursuit-portal run typecheck"
+  }
+}
