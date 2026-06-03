@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { FileText, Layers, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 
 import { AppShell } from "@/components/app-shell";
@@ -81,21 +82,21 @@ export default async function OpportunityPage({ params }: PageProps) {
           </dl>
         </div>
         <div className="content-card">
-          <h2>Related Assets</h2>
+          <h2>
+            <FileText size={18} aria-hidden="true" /> PDF Briefs
+          </h2>
           <div className="stack">
-            {packets.map((packet) => (
-              <Link className="primary-link" href={itemHref(packet)} key={packet.slug}>
-                {getTitle(packet)}
-              </Link>
-            ))}
-            {products.map((product) => (
-              <Link className="primary-link" href={itemHref(product)} key={product.slug}>
-                {getTitle(product)}
-              </Link>
-            ))}
-            {packets.length === 0 && products.length === 0 ? (
-              <p className="muted">No related assets are linked yet.</p>
-            ) : null}
+            <Link
+              className="primary-button"
+              href={`/briefs/preview/opportunity/${opportunity.slug}`}
+            >
+              <FileText size={16} aria-hidden="true" />
+              Preview opportunity PDF
+            </Link>
+            <Link className="secondary-button" href={`/briefs?opportunity=${opportunity.slug}`}>
+              <SlidersHorizontal size={16} aria-hidden="true" />
+              Build custom PDF
+            </Link>
           </div>
         </div>
       </section>
@@ -153,6 +154,36 @@ export default async function OpportunityPage({ params }: PageProps) {
           ) : (
             <p className="muted">No account record found for {accountId}.</p>
           )}
+        </div>
+      </section>
+
+      <section className="section content-card">
+        <h2>
+          <Layers size={18} aria-hidden="true" /> Related Assets
+        </h2>
+        <div className="grid grid-2">
+          <div className="stack">
+            <h3>Prospect Packets</h3>
+            {packets.map((packet) => (
+              <Link className="primary-link" href={itemHref(packet)} key={packet.slug}>
+                {getTitle(packet)}
+              </Link>
+            ))}
+            {packets.length === 0 ? (
+              <p className="muted">No prospect packets are linked yet.</p>
+            ) : null}
+          </div>
+          <div className="stack">
+            <h3>Pruvida Capabilities</h3>
+            {products.map((product) => (
+              <Link className="primary-link" href={itemHref(product)} key={product.slug}>
+                {getTitle(product)}
+              </Link>
+            ))}
+            {products.length === 0 ? (
+              <p className="muted">No capabilities are linked yet.</p>
+            ) : null}
+          </div>
         </div>
       </section>
 

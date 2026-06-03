@@ -9,9 +9,21 @@ import { requireCurrentUser } from "@/lib/session";
 
 export const dynamic = "force-dynamic";
 
-export default async function BriefBuilderPage() {
+type PageProps = {
+  searchParams: Promise<{
+    opportunity?: string;
+  }>;
+};
+
+export default async function BriefBuilderPage({ searchParams }: PageProps) {
   const user = await requireCurrentUser();
   const { opportunities, products } = getBriefBuilderData(user);
+  const params = await searchParams;
+  const selectedOpportunity = opportunities.some(
+    (opportunity) => opportunity.slug === params.opportunity
+  )
+    ? params.opportunity
+    : "";
 
   return (
     <AppShell user={user}>
@@ -116,7 +128,7 @@ export default async function BriefBuilderPage() {
               <span />
               <span>
                 <strong>Optional opportunity context</strong>
-                <select name="opportunity">
+                <select name="opportunity" defaultValue={selectedOpportunity}>
                   <option value="">No prospect-specific cover page</option>
                   {opportunities.map((opportunity) => (
                     <option value={opportunity.slug} key={opportunity.slug}>
