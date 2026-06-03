@@ -8,12 +8,12 @@ industry: financial-technology-payments
 owner: Brock Warren
 brand_color: "#ff6600"
 brand_logo_text: Fiserv
-brand_logo_path: unknown
-brand_logo_review_status: not-reviewed
+brand_logo_path: /account-logos/fiserv.svg
+brand_logo_review_status: approved
 brand_logo_candidate_path: unknown
 brand_logo_candidate_source_url: unknown
-brand_logo_source_url: unknown
-website: unknown
+brand_logo_source_url: https://www.fiserv.com/content/dam/fiserv-ent/final-files/digital-graphics/fiserv-com-graphics/fiserv-logo-orange-ff6600.svg
+website: https://www.fiserv.com/en
 linkedin: unknown
 hubspot_company_id: unknown
 external_crm_ids: {}
@@ -22,7 +22,7 @@ last_interaction_date: 2026-06-02
 next_action: Schedule onsite Alpharetta meeting and prepare Aevah paid-pilot teaser.
 next_action_due: unknown
 crm_sync_status: not-synced
-last_updated: 2026-06-02
+last_updated: 2026-06-03
 ---
 
 # Fiserv

@@ -8,12 +8,12 @@ industry: convenience-retail-fuel-foodservice
 owner: Brock Warren
 brand_color: "#d71920"
 brand_logo_text: RT
-brand_logo_path: unknown
-brand_logo_review_status: not-reviewed
+brand_logo_path: /account-logos/racetrac.ico
+brand_logo_review_status: approved
 brand_logo_candidate_path: unknown
 brand_logo_candidate_source_url: unknown
-brand_logo_source_url: unknown
-website: unknown
+brand_logo_source_url: https://www.racetrac.com/favicon.ico
+website: https://www.racetrac.com
 linkedin: unknown
 hubspot_company_id: unknown
 external_crm_ids: {}
@@ -22,7 +22,7 @@ last_interaction_date: 2026-06-02
 next_action: Prepare discovery brief around driver efficiency, food cost analytics, and onboarding automation.
 next_action_due: unknown
 crm_sync_status: not-synced
-last_updated: 2026-06-02
+last_updated: 2026-06-03
 ---
 
 # RaceTrac

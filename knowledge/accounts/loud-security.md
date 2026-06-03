@@ -8,12 +8,12 @@ industry: security-services
 owner: Brock Warren
 brand_color: "#1f5f99"
 brand_logo_text: LOUD
-brand_logo_path: unknown
-brand_logo_review_status: not-reviewed
+brand_logo_path: /account-logos/loud-security.png
+brand_logo_review_status: approved
 brand_logo_candidate_path: unknown
 brand_logo_candidate_source_url: unknown
-brand_logo_source_url: unknown
-website: unknown
+brand_logo_source_url: https://loudsecurity.com/wp-content/uploads/2020/11/logo.png
+website: https://loudsecurity.com
 linkedin: unknown
 hubspot_company_id: unknown
 external_crm_ids: {}
@@ -22,7 +22,7 @@ last_interaction_date: 2026-06-02
 next_action: Confirm meeting with John and Brian and prepare customer-operations automation packet.
 next_action_due: unknown
 crm_sync_status: not-synced
-last_updated: 2026-06-02
+last_updated: 2026-06-03
 ---
 
 # Loud Security
