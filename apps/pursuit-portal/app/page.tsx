@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 
 import { AppShell } from "@/components/app-shell";
 import { Badge } from "@/components/badge";
+import { getAccountBrand } from "@/lib/account-brand";
 import { getString, getTitle } from "@/lib/content";
 import { itemHref } from "@/lib/format";
 import {
@@ -14,47 +15,8 @@ import {
   getPacketsForOpportunity
 } from "@/lib/pipeline";
 import { requireCurrentUser } from "@/lib/session";
-import type { KnowledgeItem } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
-
-const defaultBrandColor = "#236c57";
-
-function getBrandColor(account: KnowledgeItem | undefined) {
-  const color = getString(account?.data ?? {}, "brand_color", defaultBrandColor);
-
-  return /^#[0-9a-fA-F]{6}$/.test(color) ? color : defaultBrandColor;
-}
-
-function getFallbackLogoText(companyName: string) {
-  const words = companyName.split(/\s+/).filter(Boolean);
-
-  if (words.length === 1) {
-    return words[0].slice(0, 6);
-  }
-
-  return words
-    .map((word) => word[0])
-    .join("")
-    .slice(0, 4)
-    .toUpperCase();
-}
-
-function getBrandLogoText(account: KnowledgeItem | undefined, companyName: string) {
-  const configured = getString(account?.data ?? {}, "brand_logo_text", "");
-
-  return configured && configured !== "unknown"
-    ? configured
-    : getFallbackLogoText(companyName);
-}
-
-function getBrandLogoPath(account: KnowledgeItem | undefined) {
-  const configured = getString(account?.data ?? {}, "brand_logo_path", "");
-
-  return configured && configured !== "unknown" && configured.startsWith("/")
-    ? configured
-    : "";
-}
 
 export default async function DashboardPage() {
   const user = await requireCurrentUser();
@@ -104,12 +66,10 @@ export default async function DashboardPage() {
         {opportunities.map((opportunity) => {
           const account = getAccountById(getString(opportunity.data, "account_id"));
           const companyName = getString(opportunity.data, "company_name");
-          const brandColor = getBrandColor(account);
-          const logoPath = getBrandLogoPath(account);
-          const logoText = getBrandLogoText(account, companyName);
+          const brand = getAccountBrand(account, companyName);
           const readiness = getOpportunityCrmReadiness(opportunity);
           const cardStyle = {
-            "--opportunity-accent": brandColor
+            "--opportunity-accent": brand.color
           } as CSSProperties;
 
           return (
@@ -121,7 +81,11 @@ export default async function DashboardPage() {
               <div className="card-topline">
                 <div className="opportunity-heading">
                   <span className="account-logo" aria-hidden="true">
-                    {logoPath ? <img src={logoPath} alt="" /> : <span>{logoText}</span>}
+                    {brand.logoPath ? (
+                      <img src={brand.logoPath} alt="" />
+                    ) : (
+                      <span>{brand.logoText}</span>
+                    )}
                   </span>
                   <div>
                     <Link

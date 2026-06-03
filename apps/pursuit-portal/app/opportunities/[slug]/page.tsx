@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
 import { FileText, Layers, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 import { AppShell } from "@/components/app-shell";
 import { Badge } from "@/components/badge";
 import { MarkdownView } from "@/components/markdown-view";
+import { getAccountBrand } from "@/lib/account-brand";
 import { getString, getTitle } from "@/lib/content";
 import { itemHref, label } from "@/lib/format";
 import {
@@ -36,23 +38,36 @@ export default async function OpportunityPage({ params }: PageProps) {
 
   const accountId = getString(opportunity.data, "account_id");
   const opportunityId = getString(opportunity.data, "opportunity_id");
+  const companyName = getString(opportunity.data, "company_name");
   const account = getAccountById(accountId);
+  const brand = getAccountBrand(account, companyName);
   const contacts = getContactsForAccount(accountId);
   const packets = getPacketsForOpportunity(opportunityId);
   const products = getRelatedProducts(opportunity);
   const crmReadiness = getOpportunityCrmReadiness(opportunity);
+  const brandStyle = {
+    "--opportunity-accent": brand.color
+  } as CSSProperties;
 
   return (
     <AppShell user={user}>
-      <header className="page-header">
-        <div>
-          <p className="eyebrow">Opportunity</p>
-          <h1>{getTitle(opportunity)}</h1>
-          <p className="lede">
-            {getString(opportunity.data, "company_name")} ·{" "}
-            {getString(opportunity.data, "primary_offer")} ·{" "}
-            {getString(opportunity.data, "owner")}
-          </p>
+      <header className="page-header opportunity-detail-header" style={brandStyle}>
+        <div className="opportunity-heading opportunity-heading-large">
+          <span className="account-logo account-logo-large" aria-hidden="true">
+            {brand.logoPath ? (
+              <img src={brand.logoPath} alt="" />
+            ) : (
+              <span>{brand.logoText}</span>
+            )}
+          </span>
+          <div>
+            <p className="eyebrow">Opportunity</p>
+            <h1>{getTitle(opportunity)}</h1>
+            <p className="lede">
+              {companyName} · {getString(opportunity.data, "primary_offer")} ·{" "}
+              {getString(opportunity.data, "owner")}
+            </p>
+          </div>
         </div>
         <div className="inline-list">
           <Badge>{getString(opportunity.data, "pipeline_stage")}</Badge>
