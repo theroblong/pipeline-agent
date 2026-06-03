@@ -15,6 +15,19 @@
     },
     "industry": { "type": "string" },
     "owner": { "type": "string" },
+    "brand_color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "brand_logo_text": { "type": "string" },
+    "brand_logo_path": { "type": "string" },
+    "brand_logo_review_status": {
+      "type": "string",
+      "enum": ["not-reviewed", "pending-review", "approved", "rejected"]
+    },
+    "brand_logo_candidate_path": { "type": "string" },
+    "brand_logo_candidate_source_url": { "type": "string" },
+    "brand_logo_source_url": { "type": "string" },
     "website": { "type": "string" },
     "linkedin": { "type": "string" },
     "hubspot_company_id": { "type": "string" },

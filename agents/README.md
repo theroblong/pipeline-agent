@@ -74,6 +74,18 @@ When the task is to create or revise a prospect-facing PDF brief, use:
 
 The expected result is solution-led, prospect-facing copy that helps earn or advance a meeting. Internal transcript notes and risks can inform discovery questions, but should not appear as speculative claims about the prospect.
 
+## Account Brand Logo Pattern
+
+When a new account record has a real company website and the dashboard needs a prospect logo, use:
+
+1. `agents/playbooks/account-brand-logo-staging.md`
+2. The account record from `knowledge/accounts/`
+3. `npm run logo:stage -- account-slug`
+4. Human review of the staged logo
+5. `npm run logo:approve -- account-slug`
+
+The expected result is an approved `brand_logo_path` in the account record. Staged candidates should remain in `brand_logo_candidate_path` until reviewed.
+
 ## Marketing And Collateral Pattern
 
 When the task involves campaign strategy, collateral, one-pagers, or website conversion direction, use:

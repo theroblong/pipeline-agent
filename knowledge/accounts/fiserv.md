@@ -9,6 +9,10 @@ owner: Brock Warren
 brand_color: "#ff6600"
 brand_logo_text: Fiserv
 brand_logo_path: unknown
+brand_logo_review_status: not-reviewed
+brand_logo_candidate_path: unknown
+brand_logo_candidate_source_url: unknown
+brand_logo_source_url: unknown
 website: unknown
 linkedin: unknown
 hubspot_company_id: unknown

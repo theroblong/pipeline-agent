@@ -75,6 +75,20 @@ Use `knowledge/views/pipeline-board.md` as the local CRM board. It tracks:
 
 The pipeline board is a working view. The opportunity page remains the detailed record.
 
+## Account Brand Assets
+
+Account records can drive dashboard brand cues for related opportunities:
+
+- `brand_color`: the opportunity card left-border accent.
+- `brand_logo_text`: compact fallback mark.
+- `brand_logo_path`: approved public image used in the dashboard logo slot.
+- `brand_logo_review_status`: current review state.
+- `brand_logo_candidate_path`: staged candidate awaiting review.
+- `brand_logo_candidate_source_url`: source URL for the staged candidate.
+- `brand_logo_source_url`: source URL for the approved logo.
+
+Use `npm run logo:stage -- account-slug` after a real `website` has been added. Review the staged asset in `apps/pursuit-portal/public/account-logos/_staged/`, then use `npm run logo:approve -- account-slug` to move it into the dashboard display path.
+
 ## Product Knowledge
 
 Use `knowledge/products/` as the source of truth for offer positioning, target buyers, pain signals, qualification questions, objections, and offer-fit history.

@@ -9,6 +9,8 @@
     "dev:pursuit": "npm --workspace @pruvida/pursuit-portal run dev",
     "build:pursuit": "npm --workspace @pruvida/pursuit-portal run build",
     "start:pursuit": "npm --workspace @pruvida/pursuit-portal run start",
-    "typecheck:pursuit": "npm --workspace @pruvida/pursuit-portal run typecheck"
+    "typecheck:pursuit": "npm --workspace @pruvida/pursuit-portal run typecheck",
+    "logo:stage": "node scripts/stage-account-logo.mjs",
+    "logo:approve": "node scripts/stage-account-logo.mjs --approve-staged"
   }
 }
