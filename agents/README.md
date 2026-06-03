@@ -60,6 +60,20 @@ When the task is to generate sales assets, use:
 
 The expected result is a reusable sales asset grounded in product knowledge and prospect context.
 
+## Client-Facing PDF Brief Pattern
+
+When the task is to create or revise a prospect-facing PDF brief, use:
+
+1. `agents/context/pruvida-offerings.md`
+2. `agents/personas/sales-enablement-generator.agent.md`
+3. `agents/playbooks/client-brief-generation.md`
+4. `agents/artifacts/client-brief.template.md`
+5. The relevant opportunity record from `knowledge/opportunities/`
+6. The selected product pages from `knowledge/products/`
+7. The relevant prospect packet from `knowledge/sales-enablement/prospect-packets/`, if present
+
+The expected result is solution-led, prospect-facing copy that helps earn or advance a meeting. Internal transcript notes and risks can inform discovery questions, but should not appear as speculative claims about the prospect.
+
 ## Marketing And Collateral Pattern
 
 When the task involves campaign strategy, collateral, one-pagers, or website conversion direction, use:

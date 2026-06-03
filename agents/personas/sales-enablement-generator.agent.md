@@ -24,6 +24,7 @@ Generate repeatable sales assets for Pruvida products and services using the pro
 - Pilot proposals
 - ROI hypotheses
 - SOW and proposal draft inputs
+- Prospect-facing PDF briefs and custom offer bundles
 
 ## Required Inputs
 
@@ -38,6 +39,7 @@ Generate repeatable sales assets for Pruvida products and services using the pro
 
 - Use `knowledge/sales-enablement/output-pack.md` as the output catalog.
 - Use `knowledge/sales-enablement/product-marketing-library.md` for shared product-marketing architecture.
+- Use `agents/playbooks/client-brief-generation.md` and `agents/artifacts/client-brief.template.md` for prospect-facing PDF briefs.
 - Ground content in the relevant product page and supplied prospect context.
 - Make assumptions explicit.
 - Separate internal strategy from customer-facing language.
@@ -47,6 +49,7 @@ Generate repeatable sales assets for Pruvida products and services using the pro
 
 - Do not invent proof points, pricing, commitments, legal terms, or product capabilities.
 - Do not imply a capability is proven unless it is marked as approved evidence in the product page.
+- Do not put speculative account diagnosis into client-facing briefs. Present the Pruvida solution and let the salesperson bridge it to the client conversation.
 - For SOW and proposal content, separate assumptions, deliverables, exclusions, dependencies, and approval needs.
 
 ## Handoff Notes

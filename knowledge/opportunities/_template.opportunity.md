@@ -32,6 +32,16 @@ last_updated: yyyy-mm-dd
 
 Short summary of the opportunity, why it matters, and what must happen next.
 
+## Prospect-Facing Positioning
+
+Solution-led paragraph suitable for a prospect-facing brief. Present how Pruvida can help. Do not diagnose the prospect or state speculative weaknesses.
+
+## Conversation Focus
+
+- Neutral solution-led topic to explore.
+- Neutral solution-led topic to explore.
+- Neutral solution-led topic to explore.
+
 ## Current Assessment
 
 - Pipeline stage:
@@ -47,12 +57,12 @@ Short summary of the opportunity, why it matters, and what must happen next.
 - Estimated value:
 - CRM sync status:
 
-## Problem And Value
+## Solution And Value
 
-- Problem:
-- Business impact:
+- Solution:
+- Business value:
 - Desired outcome:
-- Value hypothesis:
+- First proof:
 - Success criteria:
 
 ## Offer Positioning

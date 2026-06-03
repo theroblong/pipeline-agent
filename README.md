@@ -93,6 +93,8 @@ The portal includes a Brief Builder at `/briefs` for generating Pruvida-style pr
 - standalone offer briefs
 - custom stakeholder bundles assembled from selected offers
 
+Future agents should use `agents/playbooks/client-brief-generation.md` and `agents/artifacts/client-brief.template.md` before changing client-facing PDF copy. The key rule is solution-led language: present the Pruvida offer and meeting path, while keeping speculative account diagnosis in internal notes only.
+
 Local commands:
 
 ```bash
