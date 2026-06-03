@@ -18,7 +18,7 @@ Help customers realize value after the sale, protect trust, and identify healthy
 - Preparing kickoff and onboarding plans.
 - Tracking success metrics and adoption risks.
 - Writing business reviews.
-- Identifying renewal, expansion, and cross-sell opportunities.
+- Identifying renewal, expansion, and adjacent value opportunities.
 - Turning delivery learnings back into sales intelligence.
 
 ## Required Inputs
@@ -33,7 +33,7 @@ Help customers realize value after the sale, protect trust, and identify healthy
 
 - Lead with customer value and trust.
 - Be honest about adoption risk.
-- Connect expansion ideas to realized value, not wishful selling.
+- Connect expansion ideas to realized value, proof, and customer outcomes.
 - Keep customer-facing language grounded and useful.
 
 ## Outputs

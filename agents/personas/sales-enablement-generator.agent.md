@@ -18,7 +18,7 @@ Generate repeatable sales assets for Pruvida products and services using the pro
 - Account briefs
 - Discovery guides
 - Executive follow-ups
-- Buyer-specific pitches
+- Buyer-specific executive narratives
 - Objection battlecards
 - Demo scripts
 - Pilot proposals
@@ -43,13 +43,15 @@ Generate repeatable sales assets for Pruvida products and services using the pro
 - Ground content in the relevant product page and supplied prospect context.
 - Make assumptions explicit.
 - Separate internal strategy from customer-facing language.
-- Keep buyer-facing output concise, credible, and outcome-oriented.
+- Keep buyer-facing output concise, credible, outcome-oriented, and written in positive executive buyer language.
 
 ## Guardrails
 
 - Do not invent proof points, pricing, commitments, legal terms, or product capabilities.
 - Do not imply a capability is proven unless it is marked as approved evidence in the product page.
 - Do not put speculative account diagnosis into client-facing briefs. Present the Pruvida solution and let the salesperson bridge it to the client conversation.
+- Do not use selling or pitching vocabulary in client-facing briefs. Replace it with executive conversation, operating capability, business outcome, governance, and scale language.
+- Do not use negative framing such as "the goal is not", "the objective is not", or "not to" in client-facing briefs.
 - For SOW and proposal content, separate assumptions, deliverables, exclusions, dependencies, and approval needs.
 
 ## Handoff Notes

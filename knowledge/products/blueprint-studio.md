@@ -104,7 +104,7 @@ If ambiguity is entering the delivery process before requirements, design, estim
 - Implementation readiness checklist
 - Client workshop guide
 - AI product team demo script
-- Consulting-firm pitch
+- Consulting-firm executive narrative
 - Sales proposal
 - Delivery gate checklist
 - Feature backlog

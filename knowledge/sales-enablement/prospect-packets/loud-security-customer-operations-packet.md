@@ -14,7 +14,7 @@ last_updated: 2026-06-02
 
 ## Internal Objective
 
-Prepare for a first practical AI and automation conversation with Loud Security. The goal is to help John and Brian see concrete use cases without making the conversation feel abstract or overly technical.
+Prepare for a first practical AI and automation conversation with Loud Security. The conversation should help John and Brian see concrete operating use cases, executive value, and a clear path from focused workflow review to practical next step.
 
 ## Recommended Opening Angle
 

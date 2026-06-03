@@ -84,7 +84,7 @@ If the prospect is planning a data or MDM migration and fears cost, risk, or unk
 - Before and after cost comparison
 - Migration factory operating model
 - Automated mapping explanation
-- Partner-facing pitch
+- Partner-facing executive narrative
 
 ## Related Offers
 

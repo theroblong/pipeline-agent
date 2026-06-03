@@ -59,7 +59,7 @@ Plain-language description suitable for follow-up emails and proposal drafts.
 
 ### Discovery Positioning
 
-How to introduce the offer during early conversations without over-selling.
+How to introduce the offer during early conversations with executive relevance, clear scope, and appropriate proof standards.
 
 ## Qualification Questions
 

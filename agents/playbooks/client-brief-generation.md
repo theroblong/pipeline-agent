@@ -42,13 +42,29 @@ Use source notes, transcripts, risks, and internal assessments only to decide wh
 
 Write for the prospect, not for Brock, Robert, or an internal reviewer.
 
-Use solution-led language:
+Use positive executive buyer language. The brief should sound industry-leading, enterprise-grade, and oriented around operating capability, governance, scale, and measurable business value.
+
+Use affirmative, solution-led language:
 
 - "Pruvida can help..."
 - "A focused working session can..."
 - "The first step is to..."
 - "This conversation can explore..."
 - "A practical pilot can prove..."
+- "This creates a path to..."
+- "The work establishes..."
+- "The executive conversation centers on..."
+
+Avoid negative construction in client-facing briefs. The following patterns are forbidden in prospect-facing copy:
+
+- "The goal is not..."
+- "The objective is not..."
+- "This is not..."
+- "not to..."
+- "without..."
+- "pitch"
+- "sell"
+- "selling"
 
 Avoid speculative or trust-eroding language in client-facing briefs:
 

@@ -39,7 +39,7 @@ Each product page should include:
 ## Suggested Asset Types
 
 - Executive one-pager
-- Buyer-specific pitch
+- Buyer-specific executive narrative
 - Discovery call guide
 - Qualification checklist
 - Proposal draft

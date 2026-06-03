@@ -14,7 +14,7 @@ last_updated: 2026-06-02
 
 ## Internal Objective
 
-Prepare a high-credibility teaser for an onsite Fiserv meeting. The goal is to position Aevah as a practical way to prove data unification and workflow acceleration in Fiserv's own environment, without forcing a rip-and-replace program.
+Prepare a high-credibility teaser for an onsite Fiserv meeting. The conversation should position Aevah as a practical way to prove data unification and workflow acceleration in Fiserv's own environment while preserving operating continuity across existing systems.
 
 ## Recommended Opening Angle
 

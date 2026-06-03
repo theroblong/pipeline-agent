@@ -54,11 +54,11 @@ Aevah is an enterprise intelligence platform that helps companies turn fragmente
 
 ### Short Positioning
 
-Aevah helps enterprises convert disconnected operational data into trusted, governed, AI-ready data products that business teams can use without waiting on long IT delivery cycles.
+Aevah helps enterprises convert disconnected operational data into trusted, governed, AI-ready data products that business teams can use through a faster path to operating insight.
 
 ### Customer-Facing Positioning
 
-Aevah can help your team define, govern, enrich, and operationalize trusted data products that support analytics, AI agents, applications, and business workflows without disrupting core systems.
+Aevah can help your team define, govern, enrich, and operationalize trusted data products that support analytics, AI agents, applications, and business workflows while preserving continuity across core systems.
 
 ### Discovery Positioning
 
@@ -106,7 +106,7 @@ If the issue is fragmented operational data, inconsistent definitions, manual re
 ## Agent Outputs
 
 - Executive briefing memo
-- CIO-specific pitch
+- CIO executive narrative
 - CFO value case
 - Discovery call guide
 - Technical architecture overview
@@ -133,7 +133,7 @@ If the issue is fragmented operational data, inconsistent definitions, manual re
 - AI-ready enterprise context
 - Business-friendly data management
 - Lineage, quality, and governance built in
-- Modernization without disruption
+- Modernization with operating continuity
 
 ### Use Cases
 

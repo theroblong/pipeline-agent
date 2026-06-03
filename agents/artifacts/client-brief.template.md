@@ -40,7 +40,7 @@ List 3 to 6 neutral, solution-led topics.
 Use the standard flow unless the opportunity requires a different sequence.
 
 1. Pinpoint: align on business outcome, source systems, decision owners, and highest-value starting point.
-2. Prove: shape a narrow pilot or discovery sprint that can prove value without forcing a rip-and-replace program.
+2. Prove: shape a narrow pilot or discovery sprint that proves value while preserving operating continuity.
 3. Scale: turn the validated use case into a governed operating capability with expansion paths.
 
 ## Relevant Pruvida Capabilities
@@ -71,7 +71,8 @@ Short paragraph explaining what Pruvida can help the prospect do next.
 
 - [ ] Prospect and stakeholder names verified.
 - [ ] All metrics and proof points are approved for external use.
-- [ ] No internal diagnosis or speculative weakness appears in client-facing copy.
+- [ ] Client-facing copy is solution-led and free of internal diagnosis or speculative prospect weakness.
+- [ ] Client-facing copy uses positive executive buyer language and avoids selling, pitching, and negative framing.
 - [ ] Copy presents the solution; the salesperson can bridge to the client's situation.
 - [ ] Selected offers match the meeting objective.
 - [ ] PDF preview has been inspected for layout and text fit.

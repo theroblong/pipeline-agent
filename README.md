@@ -122,7 +122,7 @@ Use `knowledge/views/pipeline-board.md` as the standard local CRM view for oppor
 
 Use `knowledge/products/` for per-product and per-service positioning, qualification questions, objections, proof points, and offer-fit history. Use `knowledge/views/offer-positioning-matrix.md` when deciding which offer to position.
 
-Use `knowledge/sales-enablement/output-pack.md` and `knowledge/sales-enablement/product-marketing-library.md` with `agents/personas/sales-enablement-generator.agent.md` when generating briefs, pitches, discovery guides, battlecards, pilot proposals, SOW inputs, ROI hypotheses, or follow-up sequences.
+Use `knowledge/sales-enablement/output-pack.md` and `knowledge/sales-enablement/product-marketing-library.md` with `agents/personas/sales-enablement-generator.agent.md` when generating briefs, executive narratives, discovery guides, battlecards, pilot proposals, SOW inputs, ROI hypotheses, or follow-up sequences.
 
 ## Pipeline Direction
 

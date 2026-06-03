@@ -121,7 +121,7 @@ function solutionPlaybook(primaryOffer: string): SolutionPlaybook {
       coreBody:
         "The first conversation should focus on where automation, system connection, and better workflow visibility can improve speed, consistency, and customer experience.",
       note:
-        "The goal is not to pitch AI in the abstract. It is to identify one practical operating workflow that can be improved, measured, and expanded.",
+        "The conversation centers on one practical operating workflow that can be improved, measured, governed, and expanded across the customer lifecycle.",
       meetingGoal:
         "Identify one workflow where automation can improve follow-through, visibility, service speed, or team capacity.",
       sessionTopics: [
@@ -141,7 +141,7 @@ function solutionPlaybook(primaryOffer: string): SolutionPlaybook {
   if (offer.includes("aevah")) {
     return {
       heroCopy:
-        "Pruvida helps organizations turn fragmented data and operational knowledge into trusted, AI-ready operating capability without forcing a rip-and-replace program.",
+        "Pruvida helps organizations turn fragmented data and operational knowledge into trusted, AI-ready operating capability while preserving continuity across existing systems.",
       coreHead: "Create a trusted operating layer for better decisions and faster execution.",
       coreBody:
         "The first conversation should focus on the data domains, workflows, and decisions where trusted information can improve speed, visibility, and confidence.",
@@ -155,7 +155,7 @@ function solutionPlaybook(primaryOffer: string): SolutionPlaybook {
         "Clarify what trusted, governed, AI-ready information needs to look like.",
         "Define the first measurable data product, entity model, or operating view.",
         "Map the security, governance, and deployment constraints that matter.",
-        "Outline a narrow pilot path that proves value without disrupting core systems."
+        "Outline a narrow pilot path that proves value within existing operating constraints."
       ],
       workHead: "Start with one trusted data product or operating view.",
       workBody:
@@ -273,7 +273,7 @@ function processCards(): BriefCard[] {
     },
     {
       title: "Prove",
-      body: "Shape a narrow pilot or discovery sprint that can prove value without forcing a rip-and-replace program.",
+      body: "Shape a narrow pilot or discovery sprint that proves value while preserving operating continuity.",
       stats: []
     },
     {
@@ -352,7 +352,7 @@ export function makeSampleBrief(): BriefBundle {
     process: processCards(),
     detailLabel: "The Platforms",
     detailCopy:
-      "The platform stack is the proof architecture behind the advisory. It shows how Pruvida turns strategy into operating capability without forcing a rip-and-replace program.",
+      "The platform stack is the proof architecture behind the advisory. It shows how Pruvida turns strategy into operating capability while preserving continuity across existing systems.",
     offerCards: [aevah, blueprint]
       .filter(isKnowledgeItem)
       .map((product) => productToBriefCard(product)),
@@ -372,6 +372,7 @@ export function makeSampleBrief(): BriefBundle {
 export function makeOfferBrief(product: KnowledgeItem): BriefBundle {
   const pains = extractBulletsUnderHeading(product.content, "Pain Signals");
   const outcomes = extractBulletsUnderHeading(product.content, "Outcomes And Value");
+  const operatingPriorities = outcomes.length > 0 ? outcomes : pains;
   const metrics =
     extractBulletsUnderHeading(product.content, "Recommended Metrics")
       .slice(0, 3)
@@ -382,10 +383,13 @@ export function makeOfferBrief(product: KnowledgeItem): BriefBundle {
     tagline: "Pruvida executive brief",
     heroTitle: getString(product.data, "product_name", getTitle(product)),
     heroCopy: customerPositioning(product),
-    coreLabel: "Business Challenge",
-    coreHead: firstSentences(pains[0], getString(product.data, "primary_positioning")),
+    coreLabel: "Executive Priority",
+    coreHead: firstSentences(
+      operatingPriorities[0],
+      getString(product.data, "primary_positioning")
+    ),
     coreBody: firstSentences(
-      pains.slice(1, 4).join(" "),
+      operatingPriorities.slice(1, 4).join(" "),
       productSummary(product),
       330
     ),
@@ -394,7 +398,7 @@ export function makeOfferBrief(product: KnowledgeItem): BriefBundle {
       "primary_positioning",
       "a clear business problem"
     )}.`,
-    proofLabel: "Potential Outcomes",
+    proofLabel: "Target Outcomes",
     proofHeadline: firstSentences(outcomes.join(" "), productSummary(product), 250),
     metrics:
       metrics.length > 0
@@ -406,15 +410,15 @@ export function makeOfferBrief(product: KnowledgeItem): BriefBundle {
           ],
     metricNote:
       "The strongest first step is a scoped conversation around one measurable workflow, data domain, or decision point.",
-    capabilityLabel: "Where This Helps",
-    capabilities: bulletsAsCards(pains, [
+    capabilityLabel: "Operating Outcomes",
+    capabilities: bulletsAsCards(operatingPriorities, [
       getString(product.data, "primary_positioning", productSummary(product))
     ]),
     processLabel: "How To Start",
     process: processCards(),
     detailLabel: "How Pruvida Helps",
     detailCopy:
-      "Pruvida helps teams move from a useful conversation to a defined starting point, clear proof criteria, and a path to delivery.",
+      "Pruvida helps teams move from executive priority to a defined starting point, clear proof criteria, and a path to delivery.",
     offerCards: [productToBriefCard(product)],
     workHead: "Start with one measurable business outcome.",
     workBody:
@@ -483,7 +487,7 @@ export function makeOpportunityBrief(
     process: processCards(),
     detailLabel: "Relevant Pruvida Capabilities",
     detailCopy:
-      "The following Pruvida capabilities can support the conversation. The goal is to choose the smallest credible starting point and turn it into a useful next step.",
+      "The following Pruvida capabilities support an executive conversation around the strongest starting point and a useful next step.",
     offerCards: relatedProducts.map(productToBriefCard),
     workHead: playbook.workHead,
     workBody: playbook.workBody,
@@ -510,7 +514,7 @@ export function makeCustomOfferBundle(products: KnowledgeItem[]): BriefBundle {
     coreLabel: "Conversation Focus",
     coreHead: "Start with the business outcome, then choose the right capability.",
     coreBody:
-      "A useful first meeting should clarify the current friction, the cost of inaction, the systems involved, and the smallest credible path to value.",
+      "A useful first meeting should clarify the priority operating outcome, systems involved, decision owners, and smallest credible path to measurable value.",
     note:
       "Pruvida helps teams connect strategy, platforms, and delivery so the conversation can move from possibility to practical next step.",
     proofLabel: "Selected Capabilities",
@@ -523,7 +527,7 @@ export function makeCustomOfferBundle(products: KnowledgeItem[]): BriefBundle {
       { value: "1 next step", label: "Define a practical path" }
     ],
     metricNote:
-      "The objective is not a broad technology pitch. It is a useful conversation about measurable business improvement.",
+      "The objective is a focused executive conversation about measurable business improvement and the right operating capability to pursue first.",
     capabilityLabel: "Conversation Anchors",
     capabilities: products.slice(0, 6).map((product) => ({
       title: getString(product.data, "product_name", getTitle(product)),

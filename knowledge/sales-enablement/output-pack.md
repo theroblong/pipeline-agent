@@ -16,7 +16,7 @@ Use this catalog when an agent needs to generate repeatable sales assets for a p
 | Output | Purpose | Best Stage |
 | --- | --- | --- |
 | One-page executive brief | Give leaders a clear summary of problem, value, and next step | discovery, solution-fit |
-| Buyer-specific pitch | Adapt the message for CIO, CDO, CFO, COO, CEO, or business leader | lead-capture, discovery |
+| Buyer-specific executive narrative | Adapt the message for CIO, CDO, CFO, COO, CEO, or business leader | lead-capture, discovery |
 | Discovery guide | Prepare questions and qualification criteria | discovery |
 | Qualification checklist | Decide whether to advance, nurture, or disqualify | discovery |
 | Objection battlecard | Prepare credible responses and proof needs | discovery, solution-fit, proposal |

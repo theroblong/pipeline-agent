@@ -35,7 +35,7 @@ Aevah Data Flow Monitoring gives enterprises operational visibility into how dat
 ## Pain Signals
 
 - Teams discover data issues only after a user complains.
-- Reports, dashboards, or downstream feeds fail without clear root cause.
+- Reports, dashboards, or downstream feeds need clearer root-cause visibility.
 - Data quality changes are not monitored as data moves.
 - Critical integrations lack health, freshness, latency, throughput, or error visibility.
 - Support teams spend too much time investigating data incidents.
@@ -75,7 +75,7 @@ If the prospect describes data incidents, unreliable feeds, or integration firef
 
 ## Agent Outputs
 
-- Data observability pitch
+- Data observability executive narrative
 - Monitoring maturity assessment
 - Operational data-flow map
 - Failure scenario narrative

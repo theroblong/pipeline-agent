@@ -15,7 +15,7 @@ Use this pattern for executive leave-behinds, pre-reads, and door-opener assets.
 
 ## Purpose
 
-Create a C-suite one-pager that earns a conversation by transmitting a sharp worldview, not by pushing a product pitch.
+Create a C-suite one-pager that earns a conversation by transmitting a sharp worldview, executive relevance, and a clear operating-capability point of view.
 
 ## Audience
 
@@ -37,18 +37,18 @@ Most enterprises are running AI as a tooling decision. The enterprises pulling a
 
 Pruvida advises executives making the shift from AI as a tooling decision to AI as an operating model, and operates the platforms that turn strategy into governed enterprise capability.
 
-## Failure Modes
+## Executive Operating Requirements
 
 Use these as the credibility engine of the one-pager:
 
-| Failure Mode | Supporting Line |
+| Requirement | Supporting Line |
 | --- | --- |
-| Strategy without operating design. | A roadmap that never reaches the workflow. |
-| Pilots without adoption. | Demos that never become daily practice. |
-| Automation without governance. | Speed without accountability stops scale. |
-| Tools without workflow redesign. | AI layered on broken processes. |
-| Experiments without executive ownership. | Initiatives that lose altitude fast. |
-| Momentum without readiness to scale. | Wins that collapse beyond the first team. |
+| Strategy connected to operating design. | The roadmap reaches the workflow. |
+| Pilots designed for adoption. | Demonstrations become daily operating practice. |
+| Automation governed for scale. | Speed and accountability advance together. |
+| Tools aligned to workflow redesign. | AI strengthens the operating model. |
+| Experiments backed by executive ownership. | Initiatives keep altitude through decision rights and funding. |
+| Momentum matched with readiness to scale. | Early wins expand across teams with confidence. |
 
 ## Capabilities
 
@@ -98,4 +98,4 @@ Use only after human approval.
 
 - Verify proof metrics before external use.
 - Keep platforms as the "how", not the headline.
-- Use the one-pager to earn a meeting, not to exhaustively explain every offer.
+- Use the one-pager to earn a meeting through a concise executive point of view and a clear next conversation.

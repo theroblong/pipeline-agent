@@ -35,7 +35,7 @@ Pruvida and Aevah can support government and defense organizations with AI strat
 
 - Mission-critical logistics data is fragmented across systems.
 - Supplier, item, contract, inventory, demand, or operational event data is hard to reconcile.
-- Modernization needs to add intelligence without replacing core systems.
+- Modernization needs to add intelligence while preserving continuity across core systems.
 - Analysts need AI-assisted decision support with trusted and explainable data.
 - Data quality and entity consistency affect procurement, readiness, or operations.
 
@@ -55,7 +55,7 @@ Pruvida brings practical AI and enterprise data modernization capabilities to go
 
 ### DLA-Oriented Positioning
 
-Pruvida and Aevah can help DLA improve logistics intelligence by creating trusted data products across suppliers, items, contracts, inventory, demand signals, and operational events, enabling AI-assisted decision support without replacing core systems.
+Pruvida and Aevah can help DLA improve logistics intelligence by creating trusted data products across suppliers, items, contracts, inventory, demand signals, and operational events, enabling AI-assisted decision support while preserving continuity across core systems.
 
 ### Discovery Positioning
 
@@ -70,7 +70,7 @@ If the opportunity involves logistics intelligence, supplier data, item harmoniz
 | Logistics event intelligence | Track operational events and exceptions across supply chains. |
 | AI-assisted procurement | Help analysts find suppliers, compare items, and detect anomalies. |
 | Data quality monitoring | Monitor the trustworthiness of mission-critical logistics data. |
-| Modernization without disruption | Add intelligence around existing systems instead of replacing them. |
+| Modernization with continuity | Add intelligence around existing systems while preserving operational resilience. |
 
 ## Agent Outputs
 
@@ -79,7 +79,7 @@ If the opportunity involves logistics intelligence, supplier data, item harmoniz
 - Sources-sought response
 - RFI response
 - Teaming partner brief
-- Federal buyer pitch
+- Federal buyer executive narrative
 - Contract vehicle research summary
 - Past-performance-style narrative
 - Logistics intelligence use-case deck
@@ -131,7 +131,7 @@ If the opportunity involves logistics intelligence, supplier data, item harmoniz
 
 - Lead with mission usefulness, trusted data, and incremental modernization.
 - For public-sector pursuits, separate capability narrative, teaming strategy, and procurement path.
-- Use pilots that can show operational value without requiring core-system replacement.
+- Use pilots that show operational value within the existing core-system environment.
 
 ### Recommended Metrics
 

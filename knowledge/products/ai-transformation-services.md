@@ -9,7 +9,7 @@ owner: Pruvida
 primary_positioning: Practical AI strategy, prioritization, adoption roadmap, solution design, and executive advisory.
 target_buyers: ["CEO", "COO", "CIO", "CFO", "business unit leaders", "transformation leaders", "private equity operators", "government and defense contractors"]
 best_fit_stages: ["signal", "problem-exploration", "active-evaluation", "solution-shaping"]
-common_pain_signals: ["leadership wants AI but lacks roadmap", "teams are experimenting without governance", "unclear high-value AI use cases", "change management concerns"]
+common_pain_signals: ["leadership wants AI roadmap clarity", "teams need governance for AI experimentation", "high-value AI use cases need prioritization", "change management concerns"]
 crm_product_code: ai-transformation-services
 hubspot_product_id: unknown
 external_crm_ids: {}
@@ -124,7 +124,7 @@ If the prospect is asking broad AI questions before naming a specific workflow, 
 - Workshop agenda
 - Board-level AI transformation memo
 - Government/defense capability statement
-- Partner pitch
+- Partner executive narrative
 
 ## Product Marketing Deep Dive
 
