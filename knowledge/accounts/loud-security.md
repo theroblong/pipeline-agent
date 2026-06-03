@@ -6,6 +6,9 @@ company_name: Loud Security
 status: active-opportunity
 industry: security-services
 owner: Brock Warren
+brand_color: "#1f5f99"
+brand_logo_text: LOUD
+brand_logo_path: unknown
 website: unknown
 linkedin: unknown
 hubspot_company_id: unknown

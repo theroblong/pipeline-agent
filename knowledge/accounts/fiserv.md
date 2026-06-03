@@ -6,6 +6,9 @@ company_name: Fiserv
 status: active-opportunity
 industry: financial-technology-payments
 owner: Brock Warren
+brand_color: "#ff6600"
+brand_logo_text: Fiserv
+brand_logo_path: unknown
 website: unknown
 linkedin: unknown
 hubspot_company_id: unknown

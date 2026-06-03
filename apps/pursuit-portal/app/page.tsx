@@ -1,5 +1,6 @@
 import { AlertTriangle, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 import { AppShell } from "@/components/app-shell";
 import { Badge } from "@/components/badge";
@@ -7,13 +8,53 @@ import { getString, getTitle } from "@/lib/content";
 import { itemHref } from "@/lib/format";
 import {
   getAccessibleOpportunities,
+  getAccountById,
   getOpportunityCrmReadiness,
   getOpportunityRisks,
   getPacketsForOpportunity
 } from "@/lib/pipeline";
 import { requireCurrentUser } from "@/lib/session";
+import type { KnowledgeItem } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
+
+const defaultBrandColor = "#236c57";
+
+function getBrandColor(account: KnowledgeItem | undefined) {
+  const color = getString(account?.data ?? {}, "brand_color", defaultBrandColor);
+
+  return /^#[0-9a-fA-F]{6}$/.test(color) ? color : defaultBrandColor;
+}
+
+function getFallbackLogoText(companyName: string) {
+  const words = companyName.split(/\s+/).filter(Boolean);
+
+  if (words.length === 1) {
+    return words[0].slice(0, 6);
+  }
+
+  return words
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 4)
+    .toUpperCase();
+}
+
+function getBrandLogoText(account: KnowledgeItem | undefined, companyName: string) {
+  const configured = getString(account?.data ?? {}, "brand_logo_text", "");
+
+  return configured && configured !== "unknown"
+    ? configured
+    : getFallbackLogoText(companyName);
+}
+
+function getBrandLogoPath(account: KnowledgeItem | undefined) {
+  const configured = getString(account?.data ?? {}, "brand_logo_path", "");
+
+  return configured && configured !== "unknown" && configured.startsWith("/")
+    ? configured
+    : "";
+}
 
 export default async function DashboardPage() {
   const user = await requireCurrentUser();
@@ -61,21 +102,37 @@ export default async function DashboardPage() {
       <section className="section grid">
         <h2>Active Opportunities</h2>
         {opportunities.map((opportunity) => {
+          const account = getAccountById(getString(opportunity.data, "account_id"));
+          const companyName = getString(opportunity.data, "company_name");
+          const brandColor = getBrandColor(account);
+          const logoPath = getBrandLogoPath(account);
+          const logoText = getBrandLogoText(account, companyName);
           const readiness = getOpportunityCrmReadiness(opportunity);
+          const cardStyle = {
+            "--opportunity-accent": brandColor
+          } as CSSProperties;
 
           return (
-            <article className="opportunity-card" key={opportunity.slug}>
+            <article
+              className="opportunity-card"
+              key={opportunity.slug}
+              style={cardStyle}
+            >
               <div className="card-topline">
-                <div>
-                  <Link
-                    className="card-title primary-link"
-                    href={`/opportunities/${opportunity.slug}`}
-                  >
-                    {getTitle(opportunity)}
-                  </Link>
-                  <div className="card-meta">
-                    {getString(opportunity.data, "company_name")} · owner{" "}
-                    {getString(opportunity.data, "owner")}
+                <div className="opportunity-heading">
+                  <span className="account-logo" aria-hidden="true">
+                    {logoPath ? <img src={logoPath} alt="" /> : <span>{logoText}</span>}
+                  </span>
+                  <div>
+                    <Link
+                      className="card-title primary-link"
+                      href={`/opportunities/${opportunity.slug}`}
+                    >
+                      {getTitle(opportunity)}
+                    </Link>
+                    <div className="card-meta">
+                      {companyName} · owner {getString(opportunity.data, "owner")}
+                    </div>
                   </div>
                 </div>
                 <div className="inline-list">

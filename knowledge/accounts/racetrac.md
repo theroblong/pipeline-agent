@@ -6,6 +6,9 @@ company_name: RaceTrac
 status: active-opportunity
 industry: convenience-retail-fuel-foodservice
 owner: Brock Warren
+brand_color: "#d71920"
+brand_logo_text: RT
+brand_logo_path: unknown
 website: unknown
 linkedin: unknown
 hubspot_company_id: unknown

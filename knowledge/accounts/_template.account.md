@@ -6,6 +6,9 @@ company_name: Replace With Company
 status: prospect
 industry: unknown
 owner: unassigned
+brand_color: "#236c57"
+brand_logo_text: Replace
+brand_logo_path: unknown
 website: unknown
 linkedin: unknown
 hubspot_company_id: unknown
