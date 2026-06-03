@@ -11,14 +11,16 @@ import { AppShell } from "@/components/app-shell";
 import { Badge } from "@/components/badge";
 import {
   builderHref,
+  customBriefHref,
+  getOfferGroups,
   getRecommendations,
-  normalizeFilter,
-  offerFilters,
-  productMatchesFilter,
-  productName
+  productName,
+  productSelectionCue
 } from "@/lib/brief-builder";
 import { getBriefBuilderData } from "@/lib/briefs";
+import { contactDescriptor, getContactInsight } from "@/lib/contact-insights";
 import { getString, getStrings, getTitle } from "@/lib/content";
+import { getContactsForAccount } from "@/lib/pipeline";
 import { requireCurrentUser } from "@/lib/session";
 
 export const dynamic = "force-dynamic";
@@ -26,7 +28,7 @@ export const dynamic = "force-dynamic";
 type PageProps = {
   searchParams: Promise<{
     opportunity?: string;
-    filter?: string;
+    contact?: string;
   }>;
 };
 
@@ -46,15 +48,33 @@ export default async function BriefBuilderPage({ searchParams }: PageProps) {
   const selectedCompany = selectedOpportunity
     ? getString(selectedOpportunity.data, "company_name")
     : "";
-  const activeFilter = normalizeFilter(params.filter);
-  const recommendations = getRecommendations(products, selectedOpportunity);
+  const contacts = selectedOpportunity
+    ? getContactsForAccount(getString(selectedOpportunity.data, "account_id"))
+    : [];
+  const requestedContactSlug = params.contact ?? "";
+  const selectedContactSlug = contacts.some(
+    (contact) => contact.slug === requestedContactSlug
+  )
+    ? requestedContactSlug
+    : "";
+  const selectedContact =
+    contacts.find((contact) => contact.slug === selectedContactSlug) ?? null;
+  const selectedContactInsight = selectedContact
+    ? getContactInsight(selectedContact)
+    : null;
+  const selectedContactDescriptor = selectedContact
+    ? contactDescriptor(selectedContact)
+    : "";
+  const recommendations = getRecommendations(
+    products,
+    selectedOpportunity,
+    selectedContact
+  );
   const recommendedSlugs = new Set(
     recommendations.map((recommendation) => recommendation.product.slug)
   );
   const otherProducts = products.filter((product) => !recommendedSlugs.has(product.slug));
-  const filteredOtherProducts = otherProducts.filter((product) =>
-    productMatchesFilter(product, activeFilter)
-  );
+  const offerGroups = getOfferGroups(otherProducts);
 
   return (
     <AppShell user={user}>
@@ -101,6 +121,25 @@ export default async function BriefBuilderPage({ searchParams }: PageProps) {
               ))}
             </select>
           </label>
+          <label>
+            <span>Stakeholder</span>
+            <select
+              name="contact"
+              defaultValue={selectedContactSlug}
+              disabled={!selectedOpportunity}
+            >
+              <option value="">Opportunity-level brief</option>
+              {contacts.map((contact) => {
+                const insight = getContactInsight(contact);
+
+                return (
+                  <option value={contact.slug} key={contact.slug}>
+                    {insight.name} - {contactDescriptor(contact)}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
           <button className="secondary-button" type="submit">
             <SlidersHorizontal size={16} aria-hidden="true" />
             View recommendations
@@ -108,9 +147,78 @@ export default async function BriefBuilderPage({ searchParams }: PageProps) {
         </form>
       </section>
 
+      {selectedOpportunity && contacts.length > 0 ? (
+        <section className="section guided-builder-section">
+          <div className="section-heading-row">
+            <div>
+              <p className="eyebrow">Stakeholder briefs</p>
+              <h2>Briefs by contact</h2>
+              <p className="lede">
+                Each contact gets a starting packet shaped around their role,
+                influence, and recorded areas of interest.
+              </p>
+            </div>
+          </div>
+
+          <div className="stakeholder-brief-grid">
+            {contacts.map((contact) => {
+              const insight = getContactInsight(contact);
+              const contactRecommendations = getRecommendations(
+                products,
+                selectedOpportunity,
+                contact
+              );
+              const href = customBriefHref(
+                selectedOpportunity.slug,
+                contact.slug,
+                contactRecommendations.map((recommendation) => recommendation.product.slug)
+              );
+
+              return (
+                <article className="stakeholder-brief-card" key={contact.slug}>
+                  <div className="stakeholder-card-header">
+                    <div>
+                      <strong>{insight.name}</strong>
+                      <span>{contactDescriptor(contact)}</span>
+                    </div>
+                    <div className="inline-list">
+                      {insight.influence ? <Badge>{insight.influence}</Badge> : null}
+                      {insight.role ? <Badge>{insight.role}</Badge> : null}
+                    </div>
+                  </div>
+                  <p>{insight.focusSummary || "Use the opportunity-level context."}</p>
+                  <div className="included-pill-list">
+                    {contactRecommendations.map((recommendation) => (
+                      <span key={recommendation.product.slug}>
+                        {productName(recommendation.product)}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="stakeholder-card-actions">
+                    <Link className="primary-button" href={href}>
+                      <FileText size={16} aria-hidden="true" />
+                      Preview brief
+                    </Link>
+                    <Link
+                      className="secondary-button"
+                      href={builderHref(selectedOpportunitySlug, contact.slug)}
+                    >
+                      Customize
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ) : null}
+
       <form className="brief-builder-form section" action="/briefs/preview/custom">
         {selectedOpportunitySlug ? (
           <input type="hidden" name="opportunity" value={selectedOpportunitySlug} />
+        ) : null}
+        {selectedContactSlug ? (
+          <input type="hidden" name="contact" value={selectedContactSlug} />
         ) : null}
 
         <section className="guided-builder-section">
@@ -119,12 +227,16 @@ export default async function BriefBuilderPage({ searchParams }: PageProps) {
               <p className="eyebrow">Guided custom bundle</p>
               <h2>
                 <CheckCircle2 size={18} aria-hidden="true" />
-                {selectedOpportunity
+                {selectedContactInsight
+                  ? `Recommended for ${selectedContactInsight.name}`
+                  : selectedOpportunity
                   ? `Recommended for ${selectedCompany}`
                   : "Recommended starting points"}
               </h2>
               <p className="lede">
-                {selectedOpportunity
+                {selectedContactInsight
+                  ? `Start with the pages most aligned to ${selectedContactInsight.name}'s ${selectedContactDescriptor} perspective, then add stakeholder-specific capabilities below.`
+                  : selectedOpportunity
                   ? `Start with the pages most aligned to ${selectedCompany}'s current opportunity, then add stakeholder-specific capabilities below.`
                   : "Start with the core Pruvida capabilities that cover most early executive conversations."}
               </p>
@@ -143,6 +255,9 @@ export default async function BriefBuilderPage({ searchParams }: PageProps) {
                   Best first PDF for {selectedCompany}. It combines account context,{" "}
                   {getString(selectedOpportunity.data, "primary_offer")}, supporting
                   capabilities, and a focused working-session ask.
+                  {selectedContactInsight
+                    ? ` The selected custom bundle below is tuned for ${selectedContactInsight.name}.`
+                    : ""}
                 </p>
               </div>
               <Link
@@ -197,41 +312,42 @@ export default async function BriefBuilderPage({ searchParams }: PageProps) {
                 Other options
               </h2>
               <p className="lede">
-                Add pages when a stakeholder needs a different capability angle or a
-                more specific proof conversation.
+                Add pages when a stakeholder needs a different capability angle,
+                buyer lens, or proof conversation.
               </p>
             </div>
-            <nav className="filter-tabs" aria-label="Filter optional capabilities">
-              {offerFilters.map((filter) => (
-                <Link
-                  className={filter.id === activeFilter ? "active" : ""}
-                  href={builderHref(selectedOpportunitySlug, filter.id)}
-                  key={filter.id}
-                >
-                  {filter.label}
-                </Link>
-              ))}
-            </nav>
           </div>
 
-          <div className="brief-choice-grid offer-option-grid">
-            {filteredOtherProducts.map((product) => (
-              <label className="brief-choice offer-option-card" key={product.slug}>
-                <input type="checkbox" name="offers" value={product.slug} />
-                <span>
-                  <strong>{productName(product)}</strong>
-                  <span>{getString(product.data, "primary_positioning")}</span>
-                  <span className="choice-meta">
-                    {getString(product.data, "product_type", "capability")} ·{" "}
-                    {getStrings(product.data, "target_buyers").slice(0, 3).join(" · ")}
-                  </span>
-                </span>
-              </label>
+          <div className="offer-group-list">
+            {offerGroups.map((group) => (
+              <section className="offer-group" key={group.id}>
+                <div className="offer-group-heading">
+                  <h3>{group.label}</h3>
+                  <p>{group.description}</p>
+                </div>
+                <div className="brief-choice-grid offer-option-grid">
+                  {group.products.map((product) => (
+                    <label className="brief-choice offer-option-card" key={product.slug}>
+                      <input type="checkbox" name="offers" value={product.slug} />
+                      <span>
+                        <strong>{productName(product)}</strong>
+                        <span>{productSelectionCue(product)}</span>
+                        <span className="choice-meta">
+                          {getString(product.data, "product_type", "capability")} ·{" "}
+                          {getStrings(product.data, "target_buyers")
+                            .slice(0, 3)
+                            .join(" · ")}
+                        </span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
 
-          {filteredOtherProducts.length === 0 ? (
-            <p className="muted">Choose another filter to see more capabilities.</p>
+          {offerGroups.length === 0 ? (
+            <p className="muted">The recommended pages already include every capability.</p>
           ) : null}
         </section>
       </form>

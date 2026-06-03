@@ -64,6 +64,22 @@ export function getContactsForAccount(accountId: string) {
   );
 }
 
+export function getContactBySlug(slug: string) {
+  return readMarkdownItem("contacts", slug);
+}
+
+export function getContactForOpportunityBySlug(opportunity: KnowledgeItem, slug: string) {
+  const contact = getContactBySlug(slug);
+
+  if (!contact) {
+    return null;
+  }
+
+  return getString(contact.data, "account_id") === getString(opportunity.data, "account_id")
+    ? contact
+    : null;
+}
+
 export function getPackets() {
   return readMarkdownCollection("sales-enablement/prospect-packets");
 }

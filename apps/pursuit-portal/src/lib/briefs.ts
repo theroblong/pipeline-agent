@@ -6,9 +6,11 @@ import {
   getTitle,
   readMarkdownItem
 } from "@/lib/content";
+import { contactDescriptor, getContactInsight } from "@/lib/contact-insights";
 import {
   getAccessibleOpportunities,
   getAccessibleOpportunityBySlug,
+  getContactForOpportunityBySlug,
   getProducts,
   getRelatedProducts
 } from "@/lib/pipeline";
@@ -433,7 +435,8 @@ export function makeOfferBrief(product: KnowledgeItem): BriefBundle {
 
 export function makeOpportunityBrief(
   opportunity: KnowledgeItem,
-  selectedProducts?: KnowledgeItem[]
+  selectedProducts?: KnowledgeItem[],
+  contact?: KnowledgeItem | null
 ): BriefBundle {
   const relatedProducts =
     selectedProducts && selectedProducts.length > 0
@@ -442,6 +445,9 @@ export function makeOpportunityBrief(
   const accountName = getString(opportunity.data, "company_name");
   const primaryOffer = getString(opportunity.data, "primary_offer");
   const playbook = solutionPlaybook(primaryOffer);
+  const contactInsight = contact ? getContactInsight(contact) : null;
+  const contactFocus = contactInsight?.focusSummary;
+  const contactRole = contact ? contactDescriptor(contact) : "";
   const prospectPositioning = extractTextUnderHeading(
     opportunity.content,
     "Prospect-Facing Positioning"
@@ -452,10 +458,22 @@ export function makeOpportunityBrief(
   );
 
   return {
-    title: `${accountName} | ${getString(opportunity.data, "opportunity_name")}`,
-    tagline: `${accountName} executive conversation brief`,
-    heroTitle: getString(opportunity.data, "opportunity_name", accountName),
-    heroCopy: firstSentences(prospectPositioning, playbook.heroCopy, 360),
+    title: contactInsight
+      ? `${accountName} | ${contactInsight.name} Brief`
+      : `${accountName} | ${getString(opportunity.data, "opportunity_name")}`,
+    tagline: contactInsight
+      ? `${accountName} stakeholder conversation brief`
+      : `${accountName} executive conversation brief`,
+    heroTitle: contactInsight
+      ? `${getString(opportunity.data, "opportunity_name", accountName)} for ${contactInsight.name}`
+      : getString(opportunity.data, "opportunity_name", accountName),
+    heroCopy: firstSentences(
+      contactInsight
+        ? `${prospectPositioning || playbook.heroCopy} For a ${contactRole} conversation, Pruvida can emphasize ${contactFocus || playbook.meetingGoal} while keeping the working session focused on a practical next step.`
+        : prospectPositioning,
+      playbook.heroCopy,
+      360
+    ),
     coreLabel: "Solution Focus",
     coreHead: playbook.coreHead,
     coreBody: playbook.coreBody,
@@ -480,7 +498,11 @@ export function makeOpportunityBrief(
               .slice(0, 2)
               .join(" and ")}`
           : ""
-      }.`,
+      }.${
+        contactInsight
+          ? ` For ${contactInsight.name}, emphasize ${contactFocus || contactRole}.`
+          : ""
+      }`,
     capabilityLabel: "What The Session Can Cover",
     capabilities: questionCards(conversationFocus, playbook.sessionTopics),
     processLabel: "Recommended Flow",
@@ -491,9 +513,13 @@ export function makeOpportunityBrief(
     offerCards: relatedProducts.map(productToBriefCard),
     workHead: playbook.workHead,
     workBody: playbook.workBody,
-    clientLabel: "Suggested Meeting",
-    clientHead: "Business owner · Technology/data owner · Process owner",
-    clientBody: `A productive first conversation should confirm the current workflow, systems involved, value at stake, and what ${accountName} would need to see before moving forward.`,
+    clientLabel: contactInsight ? "Stakeholder Focus" : "Suggested Meeting",
+    clientHead: contactInsight
+      ? `${contactInsight.name} · ${contactRole}`
+      : "Business owner · Technology/data owner · Process owner",
+    clientBody: contactInsight
+      ? `This version emphasizes ${contactFocus || contactRole} so the conversation can connect ${accountName}'s opportunity to the stakeholder priorities and next decision.`
+      : `A productive first conversation should confirm the current workflow, systems involved, value at stake, and what ${accountName} would need to see before moving forward.`,
     footerNote:
       "Pruvida helps organizations turn AI, data, and automation ideas into practical operating capability."
   };
@@ -565,6 +591,13 @@ export function getBriefProductBySlug(slug: string) {
 
 export function getBriefOpportunityBySlug(user: PortalUser, slug: string) {
   return getAccessibleOpportunityBySlug(user, slug);
+}
+
+export function getBriefContactForOpportunityBySlug(
+  opportunity: KnowledgeItem,
+  slug: string
+) {
+  return getContactForOpportunityBySlug(opportunity, slug);
 }
 
 export function getProductsBySlugs(slugs: string[]) {
