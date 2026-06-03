@@ -1143,6 +1143,179 @@ pre {
   gap: 18px;
 }
 
+.builder-context-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.builder-context-form {
+  align-items: end;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.builder-context-form label {
+  display: grid;
+  gap: 7px;
+}
+
+.builder-context-form label span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.builder-context-form select {
+  background: #ffffff;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--ink);
+  min-height: 42px;
+  padding: 9px 11px;
+  width: 100%;
+}
+
+.guided-builder-section {
+  display: grid;
+  gap: 16px;
+}
+
+.section-heading-row {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.section-heading-row > .primary-button,
+.section-heading-row > .secondary-button {
+  flex: 0 0 auto;
+}
+
+.opportunity-brief-callout {
+  align-items: center;
+  background: var(--green-soft);
+  border: 1px solid #c7ded4;
+  border-left: 5px solid var(--green);
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.opportunity-brief-callout strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.opportunity-brief-callout p {
+  color: #2f4b42;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 5px;
+}
+
+.recommendation-grid,
+.offer-option-grid,
+.standalone-link-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.recommendation-card {
+  align-items: flex-start;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 188px;
+  padding: 16px;
+}
+
+.recommendation-card input {
+  margin-top: 4px;
+}
+
+.recommendation-card > span {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.recommendation-card-header {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.recommendation-card-header strong {
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.recommendation-reason {
+  color: var(--ink);
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  max-width: 560px;
+}
+
+.filter-tabs a {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 750;
+  min-height: 34px;
+  padding: 8px 10px;
+}
+
+.filter-tabs a.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #ffffff;
+}
+
+.offer-option-card {
+  background: #ffffff;
+  min-height: 132px;
+}
+
+.choice-meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 9px;
+}
+
+.standalone-link-grid {
+  margin-top: 12px;
+}
+
 .brief-choice-grid {
   display: grid;
   gap: 10px;
@@ -1186,6 +1359,22 @@ pre {
 }
 
 @media (max-width: 620px) {
+  .builder-context-form,
+  .recommendation-grid,
+  .offer-option-grid,
+  .standalone-link-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading-row,
+  .opportunity-brief-callout {
+    display: grid;
+  }
+
+  .filter-tabs {
+    justify-content: flex-start;
+  }
+
   .brief-toolbar {
     grid-template-columns: 1fr;
     position: static;
