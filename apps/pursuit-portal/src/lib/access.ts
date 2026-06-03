@@ -12,6 +12,12 @@ const ACCESS_RULES: Record<string, AccessRule> = {
     displayName: "Brock Warren",
     owner: "Brock Warren",
     canViewEnablement: true
+  },
+  "sherry.grote@yahoo.com": {
+    role: "seller",
+    displayName: "Sherry Grote",
+    allAccess: true,
+    canViewEnablement: true
   }
 };
 
